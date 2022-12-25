@@ -35,7 +35,7 @@ jobs:
     steps:
       - run:
           name: "Print hello world from the file"
-          command: echo "Hello World" > ~ /output.txt
+          command: echo "Hello World" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
