@@ -85,3 +85,4 @@ workflows:
           requires:
             - save_hello_world_output
       - my_job
+      - my_failed_jobs
