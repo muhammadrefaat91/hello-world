@@ -5,6 +5,15 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
+  print_myname:
+    docker:
+      - image: cimg/base:2022.04-20.04
+    environment:
+      MY_NAME: Mohammed Refaat
+    steps:
+      - run:
+          name: "Print my name"
+          command: echo $MY_NAME
   print_hello:
     docker:
       - image: circleci/node:13.8.0
@@ -30,3 +39,6 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - print_myname:
+          requires:
+            - print_world
