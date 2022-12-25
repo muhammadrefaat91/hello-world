@@ -33,7 +33,6 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - checkout
       - run:
           name: "Print hello world from the file"
           command: echo "Hello World" > ~ /output.txt
