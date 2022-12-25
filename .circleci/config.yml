@@ -10,6 +10,15 @@ commands:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
+  my_failed_jobs:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: exist 1
+      - run:
+          name: fail the job incase the previous run failed
+          command: echo "Hello Error"
+          when: on_fail
   my_job:
     docker:
       - image: circleci/node:13.8.0
